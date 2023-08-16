@@ -4,7 +4,7 @@ import "./App.css";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
-const DummyExpenses = [
+const expense = [
   {
     id: "e1",
     title: "Toilet Paper",
@@ -25,8 +25,9 @@ const DummyExpenses = [
     date: new Date(2021, 5, 12),
   },
 ];
+
 const App = () => {
-  const [expenses, setExpenses] = useState(DummyExpenses);
+  const [expenses, setExpenses] = useState(expense);
   const receiveExpense = (expense) => {
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
@@ -36,7 +37,7 @@ const App = () => {
   return (
     <div>
       <NewExpense sendExpense={receiveExpense} />
-      <Expenses item={expenses} />;
+      <Expenses item={expenses} />
     </div>
   );
 };
